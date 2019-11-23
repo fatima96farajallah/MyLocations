@@ -13,13 +13,15 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity  implements LocationListener {
-    public static String Longi;
-    public static String Lati;
+    public static double Longi;
+    public static double Lati;
     private DBHelper db =new DBHelper(this);
     TextView Latitude;
     TextView Longitude;
@@ -37,6 +39,8 @@ public class MainActivity extends AppCompatActivity  implements LocationListener
                 startActivity(viwelocation);
             }
         });
+
+
         CheckPermission();
     }
     public void onResume() {
@@ -65,8 +69,8 @@ public class MainActivity extends AppCompatActivity  implements LocationListener
     public void onLocationChanged(Location location) {
         Longitude =(TextView) findViewById(R.id.Longitude);
         Latitude = (TextView) findViewById(R.id.Latitude);
-        Longi=String.valueOf(location.getLongitude());
-        Lati=String.valueOf(location.getLatitude());
+        Longi=location.getLongitude();
+        Lati=location.getLatitude();
         Longitude.setText("Longitude : " + Longi);
         Latitude.setText("Latitude : " + Lati);
         savelocation.setOnClickListener(new View.OnClickListener() {

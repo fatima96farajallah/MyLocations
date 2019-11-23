@@ -42,8 +42,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
     //insert data to database.
-    public void insertData(String Longitude, String Latitude){
-
+    public void insertData(double Longitude, double Latitude){
         ContentValues contentValues = new ContentValues();
         contentValues.put(COLUMN_CreateAt, "");
         contentValues.put(COLUMN_UpdateAt,"");
