@@ -42,15 +42,13 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
     //insert data to database.
-    public void insertData(double Longitude,double  Latitude){
+    public void insertData(String Longitude, String Latitude){
 
         ContentValues contentValues = new ContentValues();
         contentValues.put(COLUMN_CreateAt, "");
         contentValues.put(COLUMN_UpdateAt,"");
         contentValues.put(COLUMN_Longitude,Longitude);
         contentValues.put(COLUMN_Latitude,Latitude);
-
-
         SQLiteDatabase sqLiteDB = this.getWritableDatabase();
         long result=  sqLiteDB.insert(TABLE_NAME, null,contentValues);
         sqLiteDB.close();

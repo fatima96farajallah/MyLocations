@@ -13,15 +13,14 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity  implements LocationListener {
     public static String Longi;
     public static String Lati;
+    private DBHelper db =new DBHelper(this);
     TextView Latitude;
     TextView Longitude;
     private   Button savelocation,showlocation;
@@ -70,6 +69,14 @@ public class MainActivity extends AppCompatActivity  implements LocationListener
         Lati=String.valueOf(location.getLatitude());
         Longitude.setText("Longitude : " + Longi);
         Latitude.setText("Latitude : " + Lati);
+        savelocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                db.insertData(Longi,Lati);
+                Toast.makeText(MainActivity.this, "Save Done", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     @Override
