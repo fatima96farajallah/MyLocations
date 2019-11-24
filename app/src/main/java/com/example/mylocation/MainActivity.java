@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity  implements LocationListener
         showlocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent viwelocation = new Intent(getApplicationContext(),locationviwe.class);
+                Intent viwelocation = new Intent(getApplicationContext(),Main2Activity.class);
                 startActivity(viwelocation);
             }
         });
@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity  implements LocationListener
             @Override
             public void onClick(View v) {
                 db.insertData(Longi,Lati);
+
                 Toast.makeText(MainActivity.this, "Save Done", Toast.LENGTH_SHORT).show();
             }
         });
