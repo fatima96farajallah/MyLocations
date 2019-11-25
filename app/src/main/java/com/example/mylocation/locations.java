@@ -1,5 +1,7 @@
 package com.example.mylocation;
 
+import java.util.ArrayList;
+
 public class locations {
     int id;
     String CreateAt;
